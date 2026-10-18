@@ -5,11 +5,12 @@ const {
     DisconnectReason, 
     Browsers 
 } = require('@whiskeysockets/baileys');
-const { GoogleGenAI } = require('@google/generative-ai');
+// FIXED: Changed library target path from @google/generative-ai to @google/genai
+const { GoogleGenAI } = require('@google/genai'); 
 const pino = require('pino');
 const readline = require('readline');
 
-// FIXED: Initializing with the correct class parameter format
+// FIXED: Initializing with correct client constructor matching current standards
 const apiKey = process.env.GEMINI_API_KEY;
 const ai = new GoogleGenAI({ apiKey: apiKey });
 
@@ -94,7 +95,7 @@ async function startBot() {
                 await sock.sendMessage(remoteJid, { text: "⏳ *Hakari AI is processing your request...*" }, { quoted: m });
 
                 try {
-                    // FIXED: Calling the content generation method signature smoothly
+                    // Method signatures are now fully native to @google/genai framework syntax
                     const response = await ai.models.generateContent({
                         model: 'gemini-1.5-flash',
                         contents: prompt,
