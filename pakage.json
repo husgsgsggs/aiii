@@ -1,0 +1,15 @@
+{
+  "name": "hakari-whatsapp-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp User Bot with Gemini API running 24/7",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.6.0",
+    "@google/generative-ai": "^0.2.1",
+    "pino": "^9.0.0",
+    "dotenv": "^16.4.5"
+  }
+}
